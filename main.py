@@ -11,9 +11,8 @@ secret_token = os.getenv('TOKEN')
 app = ApplicationBuilder().token(secret_token).build()
 
 app.add_handler(CommandHandler('start', start))
-# app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), echo))
 app.add_handler(CommandHandler("help", help_command))
-app.add_handler(CommandHandler("sum", sum_command))
+app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), math))
 print('Server started')
 
 app.run_polling()
