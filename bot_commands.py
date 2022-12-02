@@ -4,11 +4,11 @@ from telegram.ext import ContextTypes
 from logs import *
 
 
-async def start(update: Update, context: ContextTypes):
+async def start_command(update: Update, context: ContextTypes):
     log(update)
     await context.bot.send_message(chat_id=update.effective_chat.id,
                                    text=f'Здравствуйте, {update.effective_user.first_name}!\nЯ БОТ - Калькулятор'
-                                   '\nВсе отправленные сообщения без команд будут считаться математическими примерами, которые нужно МНЕ решить!'
+                                   '\nВсе отправленные сообщения без команд будут считаться арифметическими примерами, которые МНЕ нужно решить!'
                                    '\nДля подсказок введите: /help')
 
 
@@ -24,6 +24,6 @@ async def help_command(update: Update, context: ContextTypes):
                                    '\n\n/start - начальное сообщение с приветствием')
 
 
-async def math(update: Update, context: ContextTypes):
+async def math_f(update: Update, context: ContextTypes):
     log(update)
     await context.bot.send_message(chat_id=update.effective_chat.id, text=f'Ответ: {eval(update.message.text)}')
