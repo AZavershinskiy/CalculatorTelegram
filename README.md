@@ -9,7 +9,7 @@
 1. **Андрей - Teamlead**: main.py + bot_commands.py
     * [проект на GitHub](https://github.com/AZavershinskiy/CalculatorTelegram.git)
 2. **Надежда**: logs.py + файл README.md
-    * [проект на GitHub](https://github.com/NadezhdaBrin/???)
+    * [проект на GitHub](https://github.com/NadezhdaBrin/CalculatorTelegram.git)
 
 ***
 
