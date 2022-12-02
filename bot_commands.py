@@ -14,8 +14,7 @@ async def start_command(update: Update, context: ContextTypes):
 
 async def help_command(update: Update, context: ContextTypes):
     log(update)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text='Команды:'
-                                   '\nX ** Y - возводит X в степень Y'
+    await context.bot.send_message(chat_id=update.effective_chat.id, text='\nX ** Y - возводит X в степень Y'
                                    '\nX ** (1/Y) - извлечение корня из X, где Y величина корня'
                                    '\nX // Y - деление без остатка'
                                    '\nX % Y - получение остатка от деления'
