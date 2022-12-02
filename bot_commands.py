@@ -7,30 +7,22 @@ from logs import *
 async def start(update: Update, context: ContextTypes):
     log(update)
     await context.bot.send_message(chat_id=update.effective_chat.id,
-                                   text=f'Здравствуйте, {update.effective_user.first_name}!\nЯ БОТ - Калькулятор')
+                                   text=f'Здравствуйте, {update.effective_user.first_name}!\nЯ БОТ - Калькулятор'
+                                   '\nВсе отправленные сообщения без команд будут считаться математическими примерами, которые нужно МНЕ решить!'
+                                   '\nДля подсказок введите: /help')
 
 
-async def help_command(update: Update):
+async def help_command(update: Update, context: ContextTypes):
     log(update)
-    await update.message.reply_text('Команды:'
-                                    '\n/sum - складывает два числа через пробел'
-                                    '\n/help - отображает доступные команды'
-                                    )
-
-
-async def calc_command(update: Update, context: ContextTypes):
-    log(update)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text='Введите два числа через пробел:')
+    await context.bot.send_message(chat_id=update.effective_chat.id, text='Команды:'
+                                   '\nX ** Y - возводит X в степень Y'
+                                   '\nX ** (1/Y) - извлечение корня из X, где Y величина корня'
+                                   '\nX // Y - деление без остатка'
+                                   '\nX % Y - получение остатка от деления'
+                                   '\n\nПримеры со скобкам тоже решаются!'
+                                   '\n\n/help - подсказки')
 
 
 async def math(update: Update, context: ContextTypes):
-    msg = update.message.text
-    item = msg.split()
-    x = int(item[0])
-    y = int(item[1])
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=x+y)
-
-
-# async def echo(update: Update, context: ContextTypes):
-#     log(update)
-#     await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
+    log(update)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=f'Ответ: {eval(update.message.text)}')
