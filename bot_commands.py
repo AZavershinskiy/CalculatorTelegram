@@ -20,7 +20,8 @@ async def help_command(update: Update, context: ContextTypes):
                                    '\nX // Y - деление без остатка'
                                    '\nX % Y - получение остатка от деления'
                                    '\n\nПримеры со скобкам тоже решаются!'
-                                   '\n\n/help - подсказки')
+                                   '\n\n/help - подсказки'
+                                   '\n\n/start - начальное сообщение с приветствием')
 
 
 async def math(update: Update, context: ContextTypes):
