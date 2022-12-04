@@ -2,16 +2,18 @@ import logging
 import os
 
 from dotenv import load_dotenv
-from telegram.ext import (ApplicationBuilder, CommandHandler, MessageHandler,
-                          filters)
+from telegram.ext import (ApplicationBuilder, CommandHandler,
+                          MessageHandler, filters)
 
 from bot_commands import *
 
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 load_dotenv()
 secret_token = os.getenv('TOKEN')
+
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.DEBUG, filename='logs.log')
+
 app = ApplicationBuilder().token(secret_token).build()
 
 app.add_handler(CommandHandler('start', start_command))

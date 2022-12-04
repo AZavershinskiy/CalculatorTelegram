@@ -6,6 +6,8 @@ httpcore==0.16.2
 httpx==0.23.1
 idna==3.4
 load-dotenv==0.1.0
+numexpr==2.8.4
+numpy==1.23.5
 pycodestyle==2.10.0
 python-dotenv==0.21.0
 python-telegram-bot==20.0a6
